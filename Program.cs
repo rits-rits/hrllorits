@@ -18,11 +18,11 @@ namespace ConsoleApp3
                 Console.WriteLine("=================================");
                 Console.WriteLine("        BOOK YOUR FLIGHT!");
                 Console.WriteLine("=================================");Console.WriteLine("1. View Available Flights");
-Console.WriteLine("2. Search Flight");   // NEW
+Console.WriteLine("2. Search Flight");   
 Console.WriteLine("3. Book Flight");
 Console.WriteLine("4. View Bookings");
 Console.WriteLine("5. Cancel Booking");
-Console.WriteLine("6. Exit");            // changed to 6
+Console.WriteLine("6. Exit");            
                 
                 Console.WriteLine("=================================");
                 Console.WriteLine();
@@ -36,7 +36,7 @@ switch (choice)
         break;
 
     case "2":
-        SearchFlight();  // NEW
+        SearchFlight();  
         break;
 
     case "3":
@@ -141,3 +141,4 @@ switch (choice)
         }
     }
 }
+
