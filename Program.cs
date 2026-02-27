@@ -1,4 +1,6 @@
-﻿namespace ConsoleApp3
+using System;
+
+namespace ConsoleApp3
 {
     internal class Program
     {
@@ -6,69 +8,136 @@
         {
             MainMenu();
         }
-        static void MainMenu();
+
+        static void MainMenu()
         {
-        while(true)
+            while (true)
             {
-        Console.WriteLine("Book Your Flight!");
-        Console.WriteLine("1. View Available Flights");
-        Console.WriteLine("2. Book Flight");
-        Console.WriteLine("3. View Bookings");
-        Console.WriteLine("4. Cancel Booking");
-        Console.WriteLine("5. Exit");
-            
-        Console.WriteLine("");
-        Console.Write("Select an option: ");
-        string choice = Console.ReadLine();
+                Console.Clear();
 
-        switch(choice)
-            {
-            case "1":
-            ViewFlights();
+                Console.WriteLine("=================================");
+                Console.WriteLine("        BOOK YOUR FLIGHT!");
+                Console.WriteLine("=================================");Console.WriteLine("1. View Available Flights");
+Console.WriteLine("2. Search Flight");   // NEW
+Console.WriteLine("3. Book Flight");
+Console.WriteLine("4. View Bookings");
+Console.WriteLine("5. Cancel Booking");
+Console.WriteLine("6. Exit");            // changed to 6
+                
+                Console.WriteLine("=================================");
+                Console.WriteLine();
+                Console.Write("Select an option: ");
+
+                string choice = Console.ReadLine();
+switch (choice)
+{
+    case "1":
+        ViewFlights();
         break;
-            case "2":
-            BookFlight();
+
+    case "2":
+        SearchFlight();  // NEW
         break;
-            case "3":
-            ViewBookkings();
+
+    case "3":
+        BookFlight();
         break;
-            case "4":
-            CancelBooking();
+
+    case "4":
+        ViewBookings();
         break;
-            case "5"
-            Console.Writeline("Exiting System...");
+
+    case "5":
+        CancelBooking();
         break;
-            default:
-            Console.Writeline("Invalid Choice!!!");
+
+    case "6":
+        Console.WriteLine("Exiting System...");
+        return;
+
+    default:
+        Console.WriteLine("Invalid Choice!!!");
+        Pause();
+        break;
+}
+                
+            }
         }
-            }
-            }
-    
 
-static void ViewFlights()
+        static void ViewFlights()
+        {
+            Console.Clear();
+            Console.WriteLine("=== AVAILABLE FLIGHTS ===");
+            Console.WriteLine("1. Tokyo to South Korea");
+            Console.WriteLine("2. USA to Canada");
+            Console.WriteLine("3. Philippines to Japan");
+
+            Pause();
+        }
+        static void SearchFlight()
 {
-    Console.WriteLine("AVAILABLE FLIGHTS");
-    Console.WriteLine("Tokyo, South Korea");
+    Console.Clear();
+    Console.WriteLine("=== SEARCH FLIGHT ===");
+
+    Console.Write("Enter Departure City: ");
+    string from = Console.ReadLine();
+
+    Console.Write("Enter Destination City: ");
+    string to = Console.ReadLine();
+
+    Console.WriteLine();
+    Console.WriteLine("Searching flights from " + from + " to " + to + "...");
+    Console.WriteLine("(Search results will appear here)");
+
+    Pause();
 }
-static void BookFlights()
-{
-    Console.WriteLine("BOOK FLIGHT");
-    Console.Write("Select an option: ");
-    string flightID = Console.ReadLine();
 
-    Console.Write("Enter Passenger Name: ");
-    string name = Console.ReadLine();
+        static void BookFlight()
+        {
+            Console.Clear();
+            Console.WriteLine("=== BOOK FLIGHT ===");
 
-    Console.Write("Booking Confirmed: ");
+            Console.Write("Enter Flight ID: ");
+            string flightID = Console.ReadLine();
 
-}
+            Console.Write("Enter Passenger Name: ");
+            string name = Console.ReadLine();
 
+            Console.WriteLine();
+            Console.WriteLine("Booking Confirmed!");
+            Console.WriteLine("Passenger: " + name);
+            Console.WriteLine("Flight ID: " + flightID);
 
+            Pause();
+        }
 
-    
+        static void ViewBookings()
+        {
+            Console.Clear();
+            Console.WriteLine("=== VIEW BOOKINGS ===");
+            Console.WriteLine("(Bookings will appear here)");
 
-    
+            Pause();
+        }
 
+        static void CancelBooking()
+        {
+            Console.Clear();
+            Console.WriteLine("=== CANCEL BOOKING ===");
 
+            Console.Write("Enter Booking ID: ");
+            string bookingID = Console.ReadLine();
+
+            Console.WriteLine("Booking Cancelled (Demo Only)");
+
+            Pause();
+        }
+
+        static void Pause()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Press any key to return to menu...");
+            Console.ReadKey();
+        }
     }
 }
